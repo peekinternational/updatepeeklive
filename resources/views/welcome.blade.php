@@ -26,7 +26,7 @@
     <meta property="og:url" content="https://www.peekchat.live/">
     <meta property="og:site_name" content="Peek Chat">
     <meta property="article:modified_time" content="2021-07-01T11:52:56+00:00">
-    <meta property="og:image" content="https://www.peekchat.live/img/logo.png">
+    <meta property="og:image" content="https://www.peekchat.live/img/logo/logo.svg">
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" media="screen" href="./vendor/tiny-slider/dist/tiny-slider.css">
