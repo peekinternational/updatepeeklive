@@ -686,7 +686,7 @@
       
         <div class="col-lg-8 mx-auto">
 
-          <form method="post" action="{{ url('login') }}">
+          <form method="post" action="{{ url('logins') }}">
             <div class="row d-flex justify-content-center g-4">
             {{ csrf_field() }}
               <div class="col-sm-12">
