@@ -27,6 +27,9 @@ Route::get('paypal-cancel', [PaypalController::class, 'cancel'])->name('paypal.c
         return view('customer.index');
     })->name('home');
 
+Route::get('dashboard/doc', function () {
+        return view('customer.documentation');
+    });
   
     Route::get('dashboard/profile', function () {
         return view('customer.profile');

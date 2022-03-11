@@ -8,7 +8,7 @@
 
     <!-- SEO meta tags -->
     <meta name="author" content="Peek International">
-    <meta name="description" content="Peek Chat - premium live chat software for business. Realtime messenger to make your communication with customers as easy and enjoyable while chatting.">
+    <meta name="Description" content="Peek Chat - premium live chat software for business. Realtime messenger to make your communication with customers as easy and enjoyable while chatting.">
     <meta name="keywords" content="chat, live, realtime, system, application, messenger, chatting, integration, plugin, library, wordpress, laravel, buddypress, joomla, php, moosocial, codeigniter, community builder, xenforo,real time chat system in laravel, laravel Chat, socket chat, live chat,real-time messaging, real-time,real-time chat">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:standard">
 

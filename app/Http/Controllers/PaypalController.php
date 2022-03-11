@@ -34,9 +34,14 @@ class PaypalController extends Controller
 
     public function postPaymentWithpaypal(Request $request)
     {
-		$user_id = DB::table('users')->insertGetId(
+        if(Session::has('userInfo')){
+           $user_id = Session::get('userInfo')->id;
+        }else{
+            $user_id = DB::table('users')->insertGetId(
             ['email' => $request->email, 'name' => $request->name, 'password' => md5($request->password)]
          );
+        }
+		
 		
 		$decs = $request->plan_id .'-'. $request->amount.'-'.$user_id;
 		

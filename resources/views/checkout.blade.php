@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Checkout - Peekchat</title>
-    <meta name="Description" content="Purchase and download ArrowChat, a live chat software solution that uses PHP and mySQL. It is a Facebook chat script." /> 
+    <meta name="Description" content="Purchase and download Peekchat, a live chat software solution that uses PHP and mySQL. It is a Facebook chat script." /> 
     <meta name="robots" content="noindex,nofollow">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="content-language" content="en" />
@@ -64,46 +64,8 @@
           }
         });
                 
-                var password = document.getElementById("signup-password"), 
-          confirm_password = document.getElementById("signup-password-confirm");
-
-        function validatePassword(){
-          if(password.value != confirm_password.value) {
-          confirm_password.setCustomValidity("Confirm password doesn't match.");
-          } else {
-          confirm_password.setCustomValidity('');
-          }
-        }
-
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
         
-        $('#signup-email').focusout(function() {
-          if ($('#signup-email').val().length > 0) {
-            $.ajax({
-              url: "./check_email.php?_="+new Date().getTime(), 
-              cache: false,
-              type: "post",
-              dataType: "json",
-              error: function (xhr, ajaxOptions, thrownError) {
-                $('.email-notice').hide();
-              },
-              data: {
-                email: $('#signup-email').val()
-              },
-              success: function(result) {
-                if (result.status == 'fail') {
-                  $('.email-notice .title').html(result.title);
-                  $('.email-notice .msg').html(result.msg);
-                  $('.email-notice').show();
-                }
-                if (result.status == 'pass') {
-                  $('.email-notice').hide();
-                }
-              }
-            });
-          }
-        });
+       
           var license_quantity = 1,
           begin_price = parseInt('{{$plan->price}}'),
           install_price = parseInt('{{$plan->install_price}}'),
@@ -370,6 +332,9 @@
     </style>
   </head>
   <body class="checkout np">
+    <?php
+    $id = Request::segment(2);
+    ?>
     <div id="container">
       <header>
         <div class="relative2">
@@ -398,33 +363,42 @@
               </div>
                                                                                                                             </section>
           <section class="info mb80">
-               <div class="row checkbox-row pt30 ">
+               <div class="row checkbox-row pt30 @if($id == 2 || $id ==3) checked @endif ">
                 <div class="fl addon">
-                  <p class="title">Professional Installation<span>+${{$plan->install_price}}</span></p>
-                  <p class="desc">We'll install Peekchat on your site including login, usernames, avatars, links, and groups. Includes one installation -- you can purchase more later.</p>
+                  <p class="title">Professional Installation<span>@if($id == 2 || $id ==3)Included @else +${{$plan->install_price}} @endif</span></p>
+                  <p class="desc">We'll install Peekchat on your site including login, usernames, avatars, links. Includes one installation -- you can purchase more later.</p>
                 </div>
+                @if($id == 2 || $id ==3)
+
+                @else
                 <div class="fr addon">
-                  <input id="pro-install" name="pro_install" type="checkbox" value="1" class="sr-only" />
+                  <input id="pro-install" name="pro_install" type="checkbox" value="1" disabled="disabled"  class="sr-only" />
                   <span class="relative2 checkbox-button">
                     <i class="far fa-square"></i>
                   </span>
                 </div>
+                @endif
                 <div class="clearfix"></div>
               </div>
               <div class="row checkbox-row pt30 ">
                
                 <div class="fl addon">
-                  <p class="title">Support Extension<span>+${{$plan->support_price}}</span></p>
+                  <p class="title">Support Extension<span>@if($id == 3)Included @else +${{$plan->support_price}} @endif</span></p>
                   <p class="desc">Extend your technical support by an extra 12 months.</p>
                 </div>
+                @if($id == 3)
+
+                @else
                 <div class="fr addon">
                   <input id="support_ext" name="support_ext" type="checkbox" value="1" class="sr-only" />
                   <span class="relative2 checkbox-button">
                     <i class="far fa-square"></i>
                   </span>
                 </div>
+                @endif
                 <div class="clearfix"></div>
               </div>
+              @if(!Session::has('userInfo'))
                <div class="row border-top pt30">
                 
                 <div class="already-have-account">
@@ -458,29 +432,12 @@
                     
                   </div>
                 </div>
-                <div class="co-6 mt-4">
-                  <label for="signup-password-confirm">Confirm Password</label>
-                  <div class="relative">
-                    <input autocomplete="new-password" id="signup-password-confirm" type="password" minlength="4" maxlength="30" required name="password_confirm" class="general" />
-                    
-                  </div>
-                </div>
+              
                 <div class="clearfix"></div>
               </div>
-                            <div class="row coupon border-top pt30">
-                              <!-- <p style="color:#f03030;font-weight:500;font-size:16px;line-height: 23px;">HOLIDAY SALE!<br />Save 20% by entering the coupon code HOLIDAYS -- Ends Dec 24, 2020.</p>
-                <p>&nbsp;</p> -->
-                              <a class="have-coupon" href="javascript:void(0);">Have a coupon?</a>
-                <div class="coupon-input">
-                  <input id="coupon-code" type="text" class="general" name="coupon" placeholder="Enter code" />
-                  <a class="apply-coupon" href="javascript:void(0);">Apply</a>
-                  <span class="coupon-loading"><i class="fas fa-sync fa-spin"></i></span>
-                  <span class="coupon-desc"></span>
-                </div>
-              </div>
-             
-              <input id="amount" name="amount"  type="hidden" min="1" value="125" />
+              @endif
               <div class="row continue-button-wrapper">
+              <input id="amount" name="amount"  type="hidden" min="1" value="125" />
 
                 <button type="submit" id="continue-button"  class="site-button checkout-button-continue green"><b class="text">Checkout $<span>45</span></b></button>
               </div>

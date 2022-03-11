@@ -18,9 +18,13 @@ class HomeController extends Controller
 		$user = DB::table('users')
 		->where('email',$request->input('email'))->where('password',md5($request->input('password')))
 		->first();
-		Session::put('userInfo',$user);
+		if($user){
+		  Session::put('userInfo',$user);
+		  return redirect('/dashboard');
+		}else{
+			return redirect()->back();
+		}
 		
-		return redirect('/dashboard');
 	}
 	public function logout(){
 		Session::forget('userInfo');
