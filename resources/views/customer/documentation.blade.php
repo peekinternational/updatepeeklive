@@ -19,16 +19,10 @@
                         class="header-anchor">#</a> Server Requirements</h4>
                 <p>Before you install make sure your server meets the following requirements:</p>
                 <ul>
-                    <li>PHP 7.1.13+</li>
+                    <li>PHP 7.2+</li>
+                    <li>Laravel 7.2 | 8.0</li>
                     <li>MySQL 5.6+ or MariaDB 10.0+</li>
-                    <li>Intl PHP Extension</li>
-                    <li>OpenSSL PHP Extension</li>
-                    <li>PDO PHP Extension</li>
-                    <li>Mbstring PHP Extension</li>
-                    <li>Tokenizer PHP Extension</li>
-                    <li>XML PHP Extension</li>
-                    <li>Ctype PHP Extension</li>
-                    <li>JSON PHP Extension</li>
+                    <li>Vue.js 2.5</li>
                 </ul>
                 <h3 id="installing-"><a href="#installing-" aria-hidden="true" class="header-anchor">#</a> Installing
                 </h3>

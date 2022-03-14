@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="keywords" content="Quotebiz">
    
-    <title>Quotebiz - @yield('title')</title>
+    <title>Peekchat - @yield('title')</title>
   
     @include('customer.includes.head-css')
 

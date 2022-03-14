@@ -50,7 +50,7 @@
                                                         <p class="text-soft">Ask a question or file a support ticketn or report an issues. Our team support team will get back to you by email.</p>
                                                     </div>
                                                     <div class="nk-help-action">
-                                                        <a href="{{asset('code/css.zip')}}" class="btn btn-lg btn-outline-primary">Get Source Code</a>
+                                                        <a href="{{asset('code/peekchat.zip')}}" class="btn btn-lg btn-outline-primary">Get Source Code</a>
                                                     </div>
                                                 </div>
                                             </div>
