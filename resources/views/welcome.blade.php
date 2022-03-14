@@ -694,7 +694,7 @@
                 <input class="form-control" type="email" name="email" id="cf-email" placeholder="johndoe@email.com" required="">
              
                 <label class="form-label" for="cf-name">Password:&nbsp;<span class="text-danger">*</span></label>
-                <input class="form-control" type="password" name="password" id="cf-name" placeholder="John Doe" required="">
+                <input class="form-control" type="password" name="password" id="cf-name" placeholder="Password" required="">
                
                  <button class="btn btn-primary mt-4 w-100" type="submit">
                   <span id="initial-text">Login</span>
